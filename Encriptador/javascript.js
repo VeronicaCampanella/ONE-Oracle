@@ -2,8 +2,13 @@ function Copiar(){
     var textocopiado;
     textocopiado= document.getElementById("traduccion");
     textocopiado.select();
-    navigator.clipboard.writeText(textocopiado.value);
-    alert("Se ha copiado " + textocopiado.value);
+    navigator.clipboard.writeText(textocopiado.value).then(() => {
+        alert("Se ha copiado " + textocopiado.value);
+      })
+      .catch(() => {
+        alert("No se pudo copiar");
+      });
+    
 }
 
 function Codificar(){
